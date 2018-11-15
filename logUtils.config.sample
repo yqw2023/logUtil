@@ -1,0 +1,14 @@
+##########
+# Configuration file for mysqlbkup
+# https://github.com/quickshiftin/mysqlbkup
+##########
+
+LOG_DIR=/data/isuwang/logs
+
+BACKUP_DIR=/data/isuwang/logs
+
+MAX_BACKUPS=3
+
+# Compression library
+BKUP_BIN=gzip # Change this to xz if you wish, for tighter compression
+BKUP_EXT=gz   # Change this to xz if you wish, for tighter compression

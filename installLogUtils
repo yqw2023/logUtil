@@ -1,0 +1,30 @@
+#!/bin/bash
+# --------------------------------------------------------------------------------
+# logUtils
+# (c) Nathan Nobbe 2014
+# http://quickshiftin.com
+# quickshiftin@gmail.com
+#
+# Installation script for mysqlbkup utility.
+# --------------------------------------------------------------------------------
+
+# Deploy the executable
+cp logUtils.sh /usr/local/bin
+chmod 755 /usr/local/bin/logUtils.sh
+
+# Deploy the configuration files
+cp logUtils.config.sample /etc/logUtils.config
+chmod 600 /etc/logUtils.config
+
+# Create the backup directory
+. /etc/logUtils.config
+mkdir "$BACKUP_DIR"
+chmod 600 "$BACKUP_DIR"
+
+# Inform the user about important manual steps
+echo "logUtils is installed"
+echo "Make sure to edit /etc/logUtils.config for your needs"
+
+echo "Lastly, configure a crontab to execute the backup script periodically"
+echo "For example, to schedule the script to run once daily"
+echo "1 2 * * * /usr/local/bin/logUtils.sh 1>> /var/log/logUtils.log 2>>/var/log/logUtils-err.log"
